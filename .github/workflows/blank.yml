@@ -64,7 +64,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
+    
   deployment:
     # The type of runner that the job will run on
       runs-on: windows-latest
@@ -86,3 +86,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+    # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+          name: Build-artifact
+    # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
+          path: ${{github.workspace}}
